@@ -11,6 +11,7 @@ public class Receta implements java.io.Serializable {
     private int id;
 
     private String nombre;
+    private String descripcion;
     private List<String> ingredientes;
     private List<String> pasos;
     private float valoracion;
@@ -19,9 +20,10 @@ public class Receta implements java.io.Serializable {
     private String usuarioId;
 
 
-    public Receta(int id, String nombre, List<String> ingredientes, List<String> pasos, float valoracion, byte[] imagen, List<String> comentarios, String usuarioId) {
+    public Receta(int id, String nombre, String descripcion, List<String> ingredientes, List<String> pasos, float valoracion, byte[] imagen, List<String> comentarios, String usuarioId) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.ingredientes = ingredientes;
         this.pasos = pasos;
         this.valoracion = valoracion;
@@ -38,20 +40,28 @@ public class Receta implements java.io.Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsuarioId(String usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
-    public List<String> getIngredientes() {
-        return ingredientes;
+    public List<String> getComentarios() {
+        return comentarios;
     }
 
-    public void setIngredientes(List<String> ingredientes) {
-        this.ingredientes = ingredientes;
+    public void setComentarios(List<String> comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 
     public List<String> getPasos() {
@@ -70,27 +80,27 @@ public class Receta implements java.io.Serializable {
         this.valoracion = valoracion;
     }
 
-    public byte[] getImagen() {
-        return imagen;
+    public List<String> getIngredientes() {
+        return ingredientes;
     }
 
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
+    public void setIngredientes(List<String> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
-    public String getUsuarioId() {
-        return usuarioId;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setUsuarioId(String usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public List<String> getComentarios() {
-        return comentarios;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setComentarios(List<String> comentarios) {
-        this.comentarios = comentarios;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

@@ -2,6 +2,9 @@ package com.example.proyectofinal.Model;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -32,8 +35,9 @@ public class RecetasRepositorio {
         databaseExecutor.execute(recetaDAO::eliminarTodasLasRecetas);
     }
 
-    public void obtenerTodasLasRecetas() {
+    public LiveData<List<Receta>> obtenerTodasLasRecetas() {
         databaseExecutor.execute(recetaDAO::obtenerTodasLasRecetas);
+        return null;
     }
 }
 
