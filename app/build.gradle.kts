@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -43,6 +44,8 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.adapters)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -57,4 +60,8 @@ dependencies {
 
     // RecyclerView
     implementation ("androidx.recyclerview:recyclerview:1.3.2")
+
+
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
 }

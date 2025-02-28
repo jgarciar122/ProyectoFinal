@@ -1,15 +1,11 @@
 package com.example.proyectofinal.Model;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
-@Entity(tableName = "tabla_recetas")
-public class Receta implements java.io.Serializable {
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+public class Receta implements Serializable {
 
+    private String id;
     private String nombre;
     private String descripcion;
     private List<String> ingredientes;
@@ -19,8 +15,11 @@ public class Receta implements java.io.Serializable {
     private List<String> comentarios;
     private String usuarioId;
 
+    public Receta() {
+        // Constructor vacío requerido para Firestore
+    }
 
-    public Receta(int id, String nombre, String descripcion, List<String> ingredientes, List<String> pasos, float valoracion, byte[] imagen, List<String> comentarios, String usuarioId) {
+    public Receta(String id, String nombre, String descripcion, List<String> ingredientes, List<String> pasos, float valoracion, byte[] imagen, List<String> comentarios, String usuarioId) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -32,36 +31,37 @@ public class Receta implements java.io.Serializable {
         this.usuarioId = usuarioId;
     }
 
-    public int getId() {
+    // Getters y setters
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getUsuarioId() {
-        return usuarioId;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setUsuarioId(String usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public List<String> getComentarios() {
-        return comentarios;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setComentarios(List<String> comentarios) {
-        this.comentarios = comentarios;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public byte[] getImagen() {
-        return imagen;
+    public List<String> getIngredientes() {
+        return ingredientes;
     }
 
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
+    public void setIngredientes(List<String> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
     public List<String> getPasos() {
@@ -80,27 +80,27 @@ public class Receta implements java.io.Serializable {
         this.valoracion = valoracion;
     }
 
-    public List<String> getIngredientes() {
-        return ingredientes;
+    public byte[] getImagen() {
+        return imagen;
     }
 
-    public void setIngredientes(List<String> ingredientes) {
-        this.ingredientes = ingredientes;
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public List<String> getComentarios() {
+        return comentarios;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setComentarios(List<String> comentarios) {
+        this.comentarios = comentarios;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsuarioId(String usuarioId) {
+        this.usuarioId = usuarioId;
     }
 }

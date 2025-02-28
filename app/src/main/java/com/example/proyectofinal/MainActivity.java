@@ -1,22 +1,22 @@
 package com.example.proyectofinal;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
-import com.example.proyectofinal.databinding.ActivityMainBinding;
+import com.example.proyectofinal.UI.FragmentListaRecetas;
 
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
+
+        // Si el fragmento aún no ha sido cargado, lo añadimos dinámicamente
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentContainer, new FragmentListaRecetas())  // Usamos el ID del FragmentContainerView y el fragmento a mostrar
+                    .commit();
+        }
     }
 }
